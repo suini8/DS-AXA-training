@@ -62,7 +62,7 @@ train_data
 test_df = pd.read_csv('C:/Users/Alex/Desktop/Data science training/Titanic/Data/test.csv', header=0)    
 
 ids = test_df.PassengerId
-
+len(ids)
 test_df['Gender']=0
 
 test_df.Gender[test_df['Sex']=='male'] = 1
@@ -100,10 +100,6 @@ test_df.head()
 
 
 
-
-zip(ids, result_test)
-
-
 from sklearn import tree
 Y_Train = df_Train.Survived.values
 X_Train = df_Train.drop("Survived",axis=1).values
@@ -111,6 +107,8 @@ clf = tree.DecisionTreeClassifier()
 clf = clf.fit(X_Train, Y_Train)
 
 X_test = test_df.values
+len(X_test)
+
 
 result_test = clf.predict(X_test).astype(int)
 
